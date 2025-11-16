@@ -40,3 +40,9 @@ This is what the message should look like when you are banned:
 
 ## Can I play JP and Global simultaneously?
 Yes, but you will need to use a workaround if using the DMM version. Check out [these steps](troubleshooting.md#error-501).
+
+## What is the difference between the Physics Update Modes?
+These are modes defined internally by the game, and not implemented by Hachimi. Little is known about them.
+- `ModeNormal` is the default. 
+- `Mode60FPS` seems to restore some physics movements when increasing framerate, but can still be a little buggy sometimes.
+- Both `SkipFrame` modes are unknown but seem to be broken.
