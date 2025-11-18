@@ -32,6 +32,8 @@
 - `auto_translate_localize`: 允许通过自动翻译器翻译 UI 文本。通常不建议这样做，因为大多数翻译器无法正确保留换行符或格式标签。
 - `disable_skill_name_translation"`: 禁用技能名称的翻译。
 - `ui_animation_scale`: UI 动画速度倍率，这会调整游戏内的 UI 动画速度，建议不要调整至`10.0` 以上，可能会导致游戏卡死等问题。默认值：`1.0`。
+- `physics_update_mode"`: 更改游戏的物理引擎，可用的值：`Default`, `ModeNormal`, `Mofe60FPS`, `SkipFrame`, `SkipFramePostAlways`。
+如果您设置了游戏的帧率在 60 以上时，推荐设置为`Mofe60FPS`，其他情况不推荐修改。
 
 ### 仅限 Windows
 - `vsync_count`: 垂直同步。设置为 1，即可让游戏帧率匹配显示器的刷新率。更多信息请参阅 [Unity 文档](https://docs.unity3d.com/ScriptReference/QualitySettings-vSyncCount.html)。

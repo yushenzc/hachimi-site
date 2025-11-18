@@ -5,21 +5,22 @@
 ## Windows
 
 由于游戏的某次大版本更新，自 2025/09/24 起，您需要使用 Hachimi v0.14.2 或更新版本。
-如果遇到问题，请查阅 [故障排除](troubleshooting.md)。
-
-::: warning
-某些反作弊程序（例如 英雄联盟/无畏契约 中使用的 Vanguard）不喜欢系统上启用 DLL 重定向。每次您想玩受影响的游戏时，都需要禁用它。[这里](https://github.com/LeadRDRK/DotLocalToggle/releases)有一个小程序可以快速切换该功能。运行它直到提示 DLL 重定向已禁用，然后重启您的电脑。
-:::
-::: info
-DotLocal 目前仅用于 DMM 版本。在 Steam 平台上玩可以绕过此问题。
-:::
+如果遇到问题，请查阅[故障排除](troubleshooting.md)。
 
 1. 下载最新的[安装程序](https://github.com/kairusds/Hachimi-Edge/releases/latest/download/hachimi_installer.exe)并运行它。
 2. 如果您之前使用过 Hachimi v0.14.2 及更早版本的 Hachimi，请先点击“卸载”。
 3. 检查安装目录是否正确，如果需要请进行更改。
 4. 选择您的游戏版本，然后点击“安装” 。
+5. 安装完成后，请右键游戏的exe文件，选择属性，转到兼容性选项卡，并勾选“禁用全屏优化”。（不勾选会导致游戏无法启动）
 
 首次安装时，安装程序可能会请求您启用 DotLocal DLL 重定向。点击“确定” ，它会自动为您启用。**启用后，您必须重启（不是关机再开机）您的电脑。**
+
+::: warning
+某些反作弊程序（例如 英雄联盟/无畏契约 中使用的 Vanguard）不喜欢系统上启用 DLL 重定向。每次您想玩受影响的游戏时，都需要禁用它。[这里](https://github.com/LeadRDRK/DotLocalToggle/releases)有一个小程序可以快速切换该功能。运行它直到提示 DLL 重定向已禁用，然后重启您的电脑。
+:::
+::: info
+DotLocal 目前仅用于 DMM 版本。在 Steam 平台上玩请在安装程序中选择带 Steam 一项的安装方法。
+:::
 
 <details>
 <summary class="collapsible-header-sub">手动安装</summary>
@@ -29,10 +30,10 @@ DotLocal 目前仅用于 DMM 版本。在 Steam 平台上玩可以绕过此问�
 :::
 
 ::: tip
-本指南基于 DMM 版本。如果您使用 Steam，请在以下步骤中将 `umamusume.exe` 替换为 `UmamusumePrettyDerby.exe`。
+本指南基于 DMM 版本。如果您使用的是 Steam 版本，请在以下步骤中将 `umamusume.exe` 替换为 `UmamusumePrettyDerby.exe`。
 :::
 
-1. 参考[这篇文章](https://learn.microsoft.com/zh-cn/windows/win32/dlls/dynamic-link-library-redirection#optional-configure-the-registry)中的“配置注册表”部分来启用 DLL 重定向。完成后重启您的电脑。
+1. 参阅[这篇文章](https://learn.microsoft.com/zh-cn/windows/win32/dlls/dynamic-link-library-redirection#optional-configure-the-registry)中的“配置注册表”部分来启用 DLL 重定向。完成后重启您的电脑。
 2. 从 [Releases 页面](https://github.com/kairusds/Hachimi-Edge/releases)下载最新的 `hachimi.dll`。
 3. 在游戏安装文件夹中，创建一个名为 `umamusume.exe.local` 的新文件夹，并将下载的 DLL 文件移动到其中。将其重命名为 `UnityPlayer.dll`。
 4. 从 [Cellar Releases 页面](https://github.com/Hachimi-Hachimi/Cellar/releases)下载最新的 `cellar.dll`。
@@ -42,7 +43,7 @@ DotLocal 目前仅用于 DMM 版本。在 Steam 平台上玩可以绕过此问�
 <details>
 <summary class="collapsible-header-sub">从已弃用的插件注入方法迁移</summary>
 
-您需要先彻底卸载 Shinmy；请确保在删除它时它没有在运行，因为它在 DMM 关闭后最多能存活 30 秒并可能自我恢复。**最简单的方法就是使用安装程序**（它也是一个卸载程序），它会为您妥善清理一切。
+您需要先彻底卸载 Shinmy；请确保在删除它时它没有在运行，因为它在 DMM 关闭后最多能存活 30 秒并可能自我恢复。**最简单的方法就是使用安装程序**（同时它也是一个卸载程序），它会为您妥善清理一切。
 
 之后，您可以像往常一样卸载 Hachimi。
 </details>
@@ -117,6 +118,16 @@ UmaPatcher 提供了一个 root 安装选项，它不需要您卸载游戏或处
 在已安装游戏的情况下，点击补丁器主屏幕顶部的卡片，选择您想补丁的应用（如果需要）。然后选择“直接安装 (Direct install)”作为安装方式，并点击“补丁” (Patch)。此方式不需要任何输入文件。
 
 每当游戏更新时，您都需要再次使用 UmaPatcher 来补丁游戏。
+</details>
+
+<details>
+<summary class="collapsible-header-sub">通过 Zygisk 安装（需要 root）</summary>
+
+使用 Zygisk 安装也可以允许您不卸载游戏或处理 APK 就能安装并且可以从应用商店正常更新，但是需要您的设备拥有 Magisk 或 KernelSU 的 root 环境，并且您必须每次在 Hachimi 更新时重启您的设备。
+
+从 [Releases 页面](https://github.com/kairusds/Hachimi-Edge/releases)下载最新的 Zygisk zip 模块压缩包，并通过 Magisk 或 KernelSU（需搭配 Zygisk Next）进行安装。
+
+安装后重启设备即可享受 Hachimi。
 </details>
 
 <details>
